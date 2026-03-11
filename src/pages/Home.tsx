@@ -1,9 +1,11 @@
 import { Link } from 'react-router'
 import { products } from '../data/products'
+import  useCartStore  from "../store/cartStore"
 
 export default function Home() {
 
   // Hämta selektor för att lägga till produkt i korgen
+  const addToCart = useCartStore((state) => state.addToCart)
   
   return (
     <div className="max-w-4xl mx-auto px-4 py-10">
@@ -26,7 +28,7 @@ export default function Home() {
                 onClick={() => addToCart(product)}
                 className="px-4 py-2 bg-indigo-600 text-white text-sm rounded-lg hover:bg-indigo-700 transition"
               >
-                Lägg i korg
+                Lägg i kundvagnen
               </button>
             </div>
           </div>

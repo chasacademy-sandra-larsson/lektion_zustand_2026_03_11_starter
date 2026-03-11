@@ -3,11 +3,9 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { router } from './router'
 import { RouterProvider } from 'react-router'
-import Counter from './components/Counter'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    {/* <RouterProvider router={router} /> */}
-    <Counter/>
+    <RouterProvider router={router} />
   </StrictMode>,
 )
