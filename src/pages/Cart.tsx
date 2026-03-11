@@ -8,6 +8,11 @@ export default function Cart() {
   // Använda selektorer från cartStore
   const cart = useCartStore((state) => state.cart)
   const removeFromCart = useCartStore((state) => state.removeFromCart);
+  const increaseQuantity = useCartStore((state) => state.increaseQuantity);
+  const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+  const totalPrice = useCartStore((state) => state.totalPrice);
+
+
 
   if (cart.length === 0) {
     return (
@@ -38,14 +43,14 @@ export default function Cart() {
             </div>
             <div className="flex items-center gap-2">
               <button
-                // onClick={() => decreaseQuantity(product.id)}
+                onClick={() => decreaseQuantity(product.id)}
                 className="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold transition"
               >
                 −
               </button>
               <span className="w-6 text-center font-semibold">{quantity}</span>
               <button
-                // onClick={() => increaseQuantity(product.id)}
+                onClick={() => increaseQuantity(product.id)}
                 className="w-8 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 font-bold transition"
               >
                 +
@@ -62,7 +67,7 @@ export default function Cart() {
       </ul>
 
       <div className="mt-8 flex items-center justify-between">
-        {/* <span className="text-xl font-bold text-gray-800">Totalt: {totalPrice()} kr</span> */}
+        <span className="text-xl font-bold text-gray-800">Totalt: {totalPrice()} kr</span>
         <button className="px-6 py-3 bg-indigo-600 text-white rounded-xl hover:bg-indigo-700 transition">
           Till kassan
         </button>

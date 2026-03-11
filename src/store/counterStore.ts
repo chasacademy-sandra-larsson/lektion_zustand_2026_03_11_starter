@@ -12,7 +12,7 @@ type CounterState = {
 
 
 // 2. Skapa vår store
-export  const useCounterStore = create<CounterState>((set, get) => ({
+export  const useCounterStore = create<CounterState>((set) => ({
 
     // State
     count: 0,
